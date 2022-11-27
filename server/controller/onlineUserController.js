@@ -22,7 +22,12 @@ const logOut = async (userName, socket) => {
     console.log(user);
 }
 
+const getOnlineFriendList = async(socket)=>{
+    const onlineList = await User.find({online:true})
+    console.log(onlineList)
+} 
 module.exports = {
     logIn,
-    logOut
+    logOut,
+    getOnlineFriendList
 }

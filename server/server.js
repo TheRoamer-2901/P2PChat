@@ -12,7 +12,7 @@ const io = require('socket.io')(server, {
 });
 
 const registerHandler = require('./controller/signUpController');
-const { logIn, logOut }  = require('./controller/onlineUserController');
+const { logIn, logOut, getOnlineFriendList}  = require('./controller/onlineUserController');
 const { setUncaughtExceptionCaptureCallback } = require('process');
 
 connectDB();
@@ -46,6 +46,10 @@ mongoose.connection.once("open", () => {
     socket.on('disconnect', () => {
       console.log("peer leaved: ", socket.id);
       socket.to(10).emit('user-disconnected', socket.id)
+    })
+
+    socket.on('getUserOnline',()=>{
+      getOnlineFriendList(socket);
     })
 
   });
