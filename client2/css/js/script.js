@@ -1,8 +1,7 @@
 $('#chat').hide()
-
 $('#btnlog').click(function() {
     $('#chat').show()
-    $('#form-log').hide()
+    $('#log_box').hide()
 })
 
 $('#btnSignUp').click(function() {
