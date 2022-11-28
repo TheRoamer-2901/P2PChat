@@ -12,7 +12,7 @@ const io = require('socket.io')(server, {
 });
 
 const registerHandler = require('./controller/signUpController');
-const { logIn, logOut, getOnlineFriendList}  = require('./controller/onlineUserController');
+const { logIn, logOut, getOnlineFriendList,getUsersByName,addFriend, getUserById}  = require('./controller/onlineUserController');
 const { setUncaughtExceptionCaptureCallback } = require('process');
 
 connectDB();
@@ -49,10 +49,24 @@ mongoose.connection.once("open", () => {
     })
 
     socket.on('getUserOnline',()=>{
-      getOnlineFriendList(socket);
+      getOnlineFriendList();
     })
 
-  });
+    //return list of User has part of name equal name parameter
+    socket.on('getUsersByName',(name)=>{
+      getUsersByName(name);
+
+    })
+
+    socket.on('addFriend',(clientId,friendId)=>{
+      addFriend(clientId,friendId);
+    })
+
+    socket.on('getUserById',(Id)=>{
+      getUserById(Id)
+    })
+
+  })
 })
 
 
