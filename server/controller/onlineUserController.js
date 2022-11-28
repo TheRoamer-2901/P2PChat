@@ -22,12 +22,37 @@ const logOut = async (userName, socket) => {
     console.log(user);
 }
 
-const getOnlineFriendList = async(socket)=>{
+const getOnlineFriendList = async()=>{
     const onlineList = await User.find({online:true})
     console.log(onlineList)
 } 
+
+const getUsersByName = async(name)=>{
+    const userList = await User.find({ '$text': { '$search': name } })
+    console.log(userList)
+} 
+
+const addFriend = async(clientId, friendId)=>{
+    var newId = new mongoose.mongo.ObjectId(clientId);
+       
+        User.updateOne(
+            { _id: newId},
+            { $push: { friendList: friendId  } }
+         ).exec()
+} 
+
+const getUserById = async(Id)=>{
+        var newId = new mongoose.mongo.ObjectId(id);
+        const user = await User.find({"_id" :newId});
+        console.log(user)
+   
+}
+
 module.exports = {
     logIn,
     logOut,
+    getUsersByName,
+    addFriend,
+    getUserById,
     getOnlineFriendList
 }
