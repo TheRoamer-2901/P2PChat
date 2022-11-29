@@ -1,0 +1,21 @@
+.invitation{
+    margin: 10px 10px;
+    background-color: var(--grey);
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--light);
+}
+
+.invitation button{
+    outline: none;
+    border: none;
+    color: var(--light);
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px  ;
+}
+
+.cancel-btn {
+    background-color: red;
+}

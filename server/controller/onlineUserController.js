@@ -41,7 +41,7 @@ const addFriend = async(clientId, friendId)=>{
 } 
 
 const getUserById = async(Id)=>{
-        var newId = new mongoose.mongo.ObjectId(id);
+        var newId = new mongoose.mongo.ObjectId(Id);
         const user = await User.find({"_id" :newId});
         console.log(user)
    

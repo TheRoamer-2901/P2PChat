@@ -1,0 +1,32 @@
+.invitation{
+    background-color: var(--white);
+    position: relative;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    margin: 10px 10px;
+    color: var(--light);
+}
+
+.invitation::after{
+    position: absolute;
+    content: '';
+    width: 80%;
+}
+
+.invitation button{
+    outline: none;
+    border: none;
+    color: var(--light);
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px  ;
+}
+
+.accept-btn {
+    background-color: var(--blue)
+}
+
+.deny-btn {
+    background-color: red;
+}
