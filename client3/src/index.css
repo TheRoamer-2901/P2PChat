@@ -2,3 +2,64 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --bg: #f8f8f8;
+  --grey: #999;
+  --dark: #1a1a1a;
+  --light: #e6e6e6;
+  --wrapper: 1000px;
+  --blue: #00b0ff;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+
+@keyframes slideFromLeft {
+  0% {
+      margin-left: -200px;
+      opacity: 0;
+ }
+  100% {
+      margin-left: 0;
+      opacity: 1;
+ }
+}
+@-webkit-keyframes slideFromLeft {
+  0% {
+      margin-left: -200px;
+      opacity: 0;
+ }
+  100% {
+      margin-left: 0;
+      opacity: 1;
+ }
+}
+@keyframes slideFromRight {
+  0% {
+      margin-right: -200px;
+      opacity: 0;
+ }
+  100% {
+      margin-right: 0;
+      opacity: 1;
+ }
+}
+@-webkit-keyframes slideFromRight {
+  0% {
+      margin-right: -200px;
+      opacity: 0;
+ }
+  100% {
+      margin-right: 0;
+      opacity: 1;
+ }
+}
+
+
