@@ -12,7 +12,7 @@ const io = require('socket.io')(server, {
 });
 
 const registerHandler = require('./controller/signUpController');
-const { logIn, logOut, getOnlineFriendList,getUsersByName,addFriend, getUserById}  = require('./controller/onlineUserController');
+const { logIn, logOut, getOnlineFriendList,getUsersByName,addFriend, getUserById, acceptFriendRequest}  = require('./controller/onlineUserController');
 const { setUncaughtExceptionCaptureCallback } = require('process');
 
 connectDB();
@@ -64,6 +64,12 @@ mongoose.connection.once("open", () => {
 
     socket.on('getUserById',(Id)=>{
       getUserById(Id)
+    })
+
+    // tuple is the set of sender and receiverId, Ex:{senderId:"", receiverId:""}
+
+    socket.on('acceptFriendRequest',(tuple)=>{
+      acceptFriendRequest(tuple)
     })
 
   })

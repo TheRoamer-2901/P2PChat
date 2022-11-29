@@ -12,6 +12,10 @@ const userSchema = new Schema({
         type: [String],
         default: [],
     },
+    friendRequet:{
+        type:[{}],
+        default:[],
+    },
     messages: {
         type: [[mongoose.SchemaType.ObjectId]],
         default: [[]]
