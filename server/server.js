@@ -23,7 +23,7 @@ mongoose.connection.once("open", () => {
   console.log("db connected");
 
   io.on("connection", (socket) => {
-
+    console.log(socket.id);
     socket.on("signUp", ({ name, password }) => {
       registerHandler(name, password);
     })
