@@ -1,0 +1,125 @@
+.sidebar{
+    height: 100%;
+    width: 400px;
+    border: 1px solid var(--light);
+    background-color: var(--white);
+}
+.sidebar .top {
+    position: relative;
+    width: 100%;
+    height: 96px;
+    padding: 29px;
+}
+
+.sidebar .top:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 80%;
+    height: 1px;
+    content: '';
+    background-color: var(--light);
+    transform: translate(-50%, 0);
+}
+.sidebar input {
+    width: 100%;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid var(--light);
+    background-color: #eceff1;
+    border-radius: 21px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+.sidebar input:focus {
+    outline: none;
+}
+.sidebar a.search {
+    display: block;
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-left: 10px;
+    border: 1px solid var(--light);
+    background-color: var(--blue);
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/name-type.png');
+    background-repeat: no-repeat;
+    background-position: top 12px left 14px;
+    border-radius: 50%;
+}
+.sidebar .people {
+    margin-left: -1px;
+    border-right: 1px solid var(--light);
+    border-left: 1px solid var(--light);
+    width: calc(100% + 2px);
+}
+.sidebar .people .person {
+    position: relative;
+    width: 100%;
+    padding: 12px 10% 16px;
+    cursor: pointer;
+    background-color: var(--white);
+}
+.sidebar .people .person:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    width: 80%;
+    height: 1px;
+    content: '';
+    background-color: var(--light);
+    transform: translate(-50%, 0);
+}
+.sidebar .people .person img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.sidebar .people .person .name {
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--dark);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+.sidebar .people .person .time {
+    font-size: 14px;
+    position: absolute;
+    top: 16px;
+    right: 10%;
+    padding: 0 0 5px 5px;
+    color: var(--grey);
+    background-color: var(--white);
+}
+.sidebar .people .person .preview {
+    font-size: 14px;
+    display: inline-block;
+    overflow: hidden !important;
+    width: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--grey);
+}
+.sidebar .people .person.active, .sidebar .people .person:hover {
+    margin-top: -1px;
+    margin-left: -1px;
+    padding-top: 13px;
+    border: 0;
+    background-color: var(--blue);
+    width: calc(100% + 2px);
+    padding-left: calc(10% + 1px);
+}
+
+.sidebar .people .person.active span, .sidebar .people .person:hover span {
+    color: var(--white);
+    background: transparent;
+}
+
+.sidebar .people .person.active:after, .sidebar .people .person:hover:after {
+    display: none;
+}
