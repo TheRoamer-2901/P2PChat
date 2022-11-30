@@ -1,0 +1,18 @@
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 4px;
+    font-size: 16px;
+}
+
+.item .icon{
+    border-radius: 50%;
+}
+
+.item .icon:hover{
+    cursor: pointer;
+    color: #00FF00;
+    background-color: aquamarine	;
+    border: 1px solid var(--light); 
+}

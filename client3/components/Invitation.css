@@ -1,32 +1,32 @@
 .invitation{
-    background-color: var(--white);
-    position: relative;
     padding: 1rem 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--light);
+    background-color: #eceff1;
+    color: var(--dark);
     margin: 10px 10px;
-    color: var(--light);
 }
 
-.invitation::after{
-    position: absolute;
-    content: '';
-    width: 80%;
-}
 
 .invitation button{
+    justify-self: flex-end;
     outline: none;
     border: none;
     color: var(--light);
     cursor: pointer;
     padding: 0.5rem 0.5rem;
-    border-radius: 5px  ;
+    border-radius: 5px;
 }
 
 .accept-btn {
-    background-color: var(--blue)
+    margin-right: 15px;
+    background-color: var(--blue);
+    font-weight: bold;
 }
 
 .deny-btn {
     background-color: red;
+    font-weight: bold;
 }

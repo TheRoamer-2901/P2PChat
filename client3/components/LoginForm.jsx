@@ -18,8 +18,8 @@ const LoginForm = () => {
         const userName = nameRef.current.value;
         const password = passRef.current.value;
         socket.emit('logIn', {name: userName, password: password});
-        socket.on("loginSuccess", (user) => {
-            authenticateUser()
+        socket.on("loginSuccess", (authUser) => {
+            authenticateUser(authUser)
         });    
     }
 

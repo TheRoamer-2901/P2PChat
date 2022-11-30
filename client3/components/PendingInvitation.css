@@ -1,19 +1,23 @@
-.invitation{
+.pending-invitation{
     margin: 10px 10px;
-    background-color: var(--grey);
+    border: 1px solid var(--light);
+    background-color: #eceff1;
+    color: var(--dark);
     padding: 1rem 1rem;
     display: flex;
     align-items: center;
-    color: var(--light);
+    justify-content: space-between;
+    color: var(--dark);
 }
 
-.invitation button{
+.pending-invitation button{
     outline: none;
     border: none;
     color: var(--light);
     cursor: pointer;
     padding: 0.5rem 0.5rem;
-    border-radius: 5px  ;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .cancel-btn {
