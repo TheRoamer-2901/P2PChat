@@ -12,7 +12,20 @@ const io = require('socket.io')(server, {
 });
 
 const registerHandler = require('./controller/signUpController');
-const { logIn, logOut, getOnlineFriendList,getUsersByName,addFriend, getUserById, acceptFriendRequest}  = require('./controller/onlineUserController');
+const { 
+  logIn, 
+  logOut, 
+  getOnlineFriendList,
+  getUserByName,
+  addFriend, 
+  getUserById, 
+  acceptFriendRequest
+}  = require('./controller/onlineUserController');
+const { 
+  handleInvitation,
+  getInvitation
+} = require('./controller/friendController')
+
 const { setUncaughtExceptionCaptureCallback } = require('process');
 
 connectDB();
@@ -53,8 +66,8 @@ mongoose.connection.once("open", () => {
     })
 
     //return list of User has part of name equal name parameter
-    socket.on('getUsersByName',(name)=>{
-      getUsersByName(name);
+    socket.on('getUserByName',(name)=>{
+      getUserByName(name, socket);
 
     })
 
@@ -64,6 +77,15 @@ mongoose.connection.once("open", () => {
 
     socket.on('getUserById',(Id)=>{
       getUserById(Id)
+    })
+
+
+    socket.on('invitation', (invitation, option) => {
+      handleInvitation(invitation, option, socket)
+    })
+
+    socket.on('invitation-sent', userId => {
+      getInvitation(userId, socket)
     })
 
     // tuple is the set of sender and receiverId, Ex:{senderId:"", receiverId:""}

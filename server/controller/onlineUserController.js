@@ -21,14 +21,14 @@ const logOut = async (userName, socket) => {
     console.log(user);
 }
 
-const getOnlineFriendList = async()=>{
+const getOnlineFriendList = async () => {
     const onlineList = await User.find({online:true})
     console.log(onlineList)
 } 
 
-const getUsersByName = async(name)=>{
-    const userList = await User.find({ '$text': { '$search': name } })
-    console.log(userList)
+const getUserByName = async(name, socket)=>{
+    const userList = await User.find({ '$text': { '$search': name } }).exec()
+    socket.emit('return-user-by-name', userList)
 } 
 
 const addFriend = async (clientId,friendId)=>{
@@ -98,7 +98,7 @@ const acceptFriendRequest = async (tuple)=>{
 module.exports = {
     logIn,
     logOut,
-    getUsersByName,
+    getUserByName,
     addFriend,
     getUserById,
     acceptFriendRequest,
