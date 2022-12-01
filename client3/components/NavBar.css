@@ -14,8 +14,18 @@
     margin-left: 10px
 }
 
+.navright{
+    display: flex;
+    align-items: center;
+}
 .navbar a:hover{
     text-decoration: underline;
+}
+
+.username{
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
 }
 
 .logout-btn{

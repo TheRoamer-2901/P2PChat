@@ -5,6 +5,7 @@
     background-color: var(--white);
 }
 .sidebar .top {
+    color: white;
     position: relative;
     width: 100%;
     height: 96px;

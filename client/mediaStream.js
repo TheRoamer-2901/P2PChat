@@ -6,7 +6,11 @@ const videoGrid = document.querySelector(".video-grid")
 
 
 const socket = io("http://localhost:3000")
-const myPeer = new Peer()
+const myPeer = new Peer({
+    host: 'localhost',
+    port: 5001,
+    path: '/'
+})
 console.log("peer id: ", myPeer.id);
 let myPeerId
 

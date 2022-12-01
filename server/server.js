@@ -7,7 +7,7 @@ const server = http.createServer(app);
 const connectDB = require('./connectDB'); 
 const io = require('socket.io')(server, {
   cors: {
-    origin: ['http://localhost:8080', 'http://0.0.11.185:443/peerjs/id?ts=16690370902270.9016398677373085&version=1.4.7']
+    origin: ['http://localhost:8080', 'http://localhost:8081', 'http://0.0.11.185:443/peerjs/id?ts=16690370902270.9016398677373085&version=1.4.7']
   }
 });
 

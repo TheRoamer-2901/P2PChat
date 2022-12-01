@@ -13,17 +13,21 @@ const Navbar = () => {
       <ul>
           <Link to='/'>Chat</Link>
           <Link to='/friend'>Friend</Link>
+          <a targe='_blank' href='http://localhost:8081'>Join a Video Room</a>
       </ul>
-      <button 
-        className='logout-btn'
-        onClick={() => {
-          const userName = authUser?.user["name"]
-          socket.emit('logOut', userName)
-          navigate('/login')
-        }}
-      >
-        Log out
-      </button>
+      <div className='navright'>
+        <div className='username'>{authUser?.user["name"]}</div>
+        <button 
+          className='logout-btn'
+          onClick={() => {
+            const userName = authUser?.user["name"]
+            socket.emit('logOut', userName)
+            navigate('/login')
+          }}
+        >
+          Log out
+        </button>
+      </div>
     </div>
 
 

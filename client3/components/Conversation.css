@@ -1,3 +1,16 @@
+.conversation.active-conversation{
+    display: block !important;
+}
+
+.conversation{
+    width: 100%;
+    max-width: 1000px;
+    overflow-y: scroll;
+    display: none;
+}
+
+
+
 .top {
     width: 100%;
     height: 47px;
@@ -26,7 +39,6 @@
     flex-direction: column;
 }
  .chat.active-chat {
-    display: block;
     display: flex;
 }
 
