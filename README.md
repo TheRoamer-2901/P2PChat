@@ -11,7 +11,7 @@
     To make the signalling server run properly, make sure to install it on your local machine
     Reference: https://github.com/peers/peerjs-server
 
-*How to run 
+*How to run:
     Run client to setup the video UI
     Run client3 to setup the main front-end
     Run server and peer server for back-end implemetation
