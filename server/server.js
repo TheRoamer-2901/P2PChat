@@ -36,7 +36,6 @@ mongoose.connection.once("open", () => {
   console.log("db connected");
 
   io.on("connection", (socket) => {
-    console.log(socket.id);
     socket.on("signUp", ({ name, password }) => {
       registerHandler(name, password);
     })
@@ -45,7 +44,7 @@ mongoose.connection.once("open", () => {
       logIn(name, password, socket);
     })
 
-    socket.on('logOut', ({name}) => {
+    socket.on('logOut', (name) => {
       logOut(name, socket);
     })
 
@@ -57,7 +56,6 @@ mongoose.connection.once("open", () => {
 
 
     socket.on('disconnect', () => {
-      console.log("peer leaved: ", socket.id);
       socket.to(10).emit('user-disconnected', socket.id)
     })
 

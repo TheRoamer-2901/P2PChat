@@ -1,7 +1,5 @@
 import './PendingInvitation.css'
 
-const user = "Khoa"
-
 const PendingInvitation = ({invitation, update}) => {
   const { receiverName } = invitation
 
@@ -10,7 +8,7 @@ const PendingInvitation = ({invitation, update}) => {
         <div>You have sent {receiverName} an invitation </div>
         <button 
           className='cancel-btn'
-          onClick={() => {update(invitation, 'deny')}}
+          onClick={() => {update(invitation,'deny')}}
         >
           Cancel
         </button>

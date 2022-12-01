@@ -8,6 +8,7 @@ export function useInvitation(userId) {
     function updateUserList() {
         socket.emit('invitation-sent', userId)
         socket.on('invitation-returned', invitations => {
+            const updated = invitations
             setInvitationList(invitations)
         })
     }
@@ -16,7 +17,8 @@ export function useInvitation(userId) {
     }, [])
    
     socket.on('invitation-update', userList => {
-        updateUserList()
+        console.log(userList);
+        if(userList.includes(userId)) updateUserList()
     })
 
     return invitationList

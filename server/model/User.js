@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
+const friendSchema = new Schema({
+    friendId: mongoose.Schema.Types.ObjectId,
+    friendName: String,
+})
+
 const userSchema = new Schema({
     name: String,
     password: String, 
@@ -8,16 +13,9 @@ const userSchema = new Schema({
         type: Boolean,
         default: false,
     }, 
-    friendList: {
-        type: [String],
-        default: [],
-    },
-    friendRequet:{
-        type:[{}],
-        default:[],
-    },
+    friendList: [friendSchema],
     messages: {
-        type: [[mongoose.SchemaType.ObjectId]],
+        type: [[mongoose.Schema.Types.ObjectId]],
         default: [[]]
     },
 })

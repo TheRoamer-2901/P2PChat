@@ -4,13 +4,11 @@ import { useAuth } from '../hooks/useAuth'
 import { useSocket } from '../hooks/useSocket'
 import './Form.css'
 
-
-
 const LoginForm = () => {
     const nameRef = useRef()
     const passRef = useRef()
     const socket = useSocket()
-    const {authenticateUser} = useAuth()
+    const {authUser : prevAuth, authenticateUser} = useAuth()
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
@@ -19,7 +17,10 @@ const LoginForm = () => {
         const password = passRef.current.value;
         socket.emit('logIn', {name: userName, password: password});
         socket.on("loginSuccess", (authUser) => {
-            authenticateUser(authUser)
+            if(!prevAuth) {
+                authenticateUser(authUser)
+            }
+            navigate('/')
         });    
     }
 

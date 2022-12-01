@@ -14,7 +14,7 @@ const Chat = () => {
 
   }
   return (
-    <div className="chat">
+    <div className="chat-page">
         <SideBar 
           selectedId={selectedId} 
           selectUser={selectUser}

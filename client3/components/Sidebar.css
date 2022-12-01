@@ -61,6 +61,12 @@
     cursor: pointer;
     background-color: var(--white);
 }
+
+.sidebar .write 
+.sidebar .people .person .title{
+    font-size: 15px;
+}
+
 .sidebar .people .person:after {
     position: absolute;
     bottom: 0;

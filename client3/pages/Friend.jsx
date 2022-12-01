@@ -23,13 +23,8 @@ const Friend = () => {
     const userName = searchRef.current.value
     socket.emit('getUserByName', userName)
   }
-  function updateInvitation(user, option) {
-    socket.emit('invitation', {
-      senderId: authUser.user["_id"], 
-      senderName: authUser.user["name"],
-      receiverId: user["_id"],
-      receiverName: user["name"]
-    }, option)
+  function updateInvitation(invitation, option) {
+    socket.emit('invitation', invitation, option)
   }
 
   return (

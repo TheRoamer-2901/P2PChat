@@ -17,8 +17,7 @@ const logIn = async (userName, password, socket) => {
 
 const logOut = async (userName, socket) => {
     await User.updateOne({name : userName}, {$set: {online: false}}).exec()
-    const user = await User.findOne({name: userName});
-    console.log(user);
+    console.log("user log out");
 }
 
 const getOnlineFriendList = async () => {

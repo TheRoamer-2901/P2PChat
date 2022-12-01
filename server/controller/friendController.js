@@ -4,7 +4,6 @@ const Invitation = require('../model/Invitation')
 
 async function handleInvitation(invitation, option, socket) {
     const { senderId, senderName, receiverId, receiverName } = invitation
-    console.log(senderId, receiverId);
     switch (option) {
         case 'new':
             await Invitation.create({
@@ -22,20 +21,21 @@ async function handleInvitation(invitation, option, socket) {
                 {receiverId: receiverId}
             ]}).exec()
             await User.updateOne(
-                {_id: senderId}, { $push: {friendList: receiverId} }
+                {_id: senderId}, { $addToSet: {friendList: {friendId: receiverId, friendName: receiverName} }}
             ).exec()
             await User.updateOne(
-                {_id: receiverId}, { $push: {friendList: senderId} }
+                {_id: receiverId}, { $addToSet: {friendList: {friendId: senderId, friendName: senderName} }}
             ).exec()
             
             break;
         case 'deny':
             try {
+                console.log('deny');
                 await Invitation.deleteOne({ $and: [
                     {senderId: senderId},
                     {receiverId: receiverId}
                 ]}).exec()
-            } catch(err) {
+            } catch(err) {  
                 console.log(err);
             }
 
